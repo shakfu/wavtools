@@ -1,0 +1,67 @@
+[project]
+name = "wavtools"
+version = "0.1.0"
+description = "Utilities for creating Morphagene reels and Octatrack sample chains"
+readme = "README.md"
+requires-python = ">=3.13"
+license = "MIT"
+authors = [
+    { name = "Shakeeb Alireza", email = "shakfu@users.noreply.github.com" }
+]
+keywords = ["audio", "wav", "morphagene", "octatrack", "sampler", "synthesizer"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Sound/Audio :: Conversion",
+    "Typing :: Typed",
+]
+dependencies = [
+    "numpy>=1.26",
+    "cysox",
+]
+
+[project.urls]
+Homepage = "https://github.com/shakfu/wavtools"
+Repository = "https://github.com/shakfu/wavtools"
+
+[project.scripts]
+mg_utils = "wavtools.morphagene:main"
+ot_utils = "wavtools.octatrack:main"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "pytest>=9.0.2",
+    "ruff>=0.15.6",
+    "twine>=6.2.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.10.9,<0.11.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+mypy_path = "src"
+
+[[tool.mypy.overrides]]
+module = ["cysox", "cysox.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
