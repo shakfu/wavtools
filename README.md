@@ -161,6 +161,34 @@ chain options:
 
 - Max 64 slices per chain
 
+## Credits
+
+This project is a derivative work, re-implemented in Python with
+[cysox](https://github.com/shakfu/cysox). The original tools were
+written in Rust by [Icaro Ferre](https://spektroaudio.com):
+
+- **[ot_utils](https://github.com/icaroferre/ot_utils)** -- Rust library
+  for concatenating audio samples and generating Elektron Octatrack `.ot`
+  slice files. The chain building, `.ot` binary format generation, and
+  slice metadata in `ot_utils` are ported from this project.
+
+- **[AudioHit](https://github.com/icaroferre/AudioHit)** -- Rust
+  command-line tool for batch processing audio samples for hardware and
+  software samplers. The auto-conversion, peak normalization, random
+  sample selection, and evenly-spaced chaining features in `ot_utils`
+  are ported from AudioHit.
+
+- **[morphagene_ableton.py](https://gist.github.com/knandersen/a1da6859e3ef84f3c0ce1979536d85c8)**
+  by knandersen (forked from ferrihydrite's Audacity version) -- Python
+  script for converting Ableton Live projects into Morphagene-compatible
+  WAV reels with splice markers. The Ableton `.als` parsing, 32-bit
+  float WAV writing with `cue`/`labl` chunks, and sample rate conversion
+  in `mg_utils` are derived from this script.
+
+The `.ot` binary format is based on the reverse-engineered specification
+from the **[OctaChainer](https://www.elektronauts.com/t/octachainer-extracting-concatenating-samples-and-creating-ot-files/44368)**
+tool by Kai Drange, which inspired the original ot_utils project.
+
 ## Development
 
 ```sh
