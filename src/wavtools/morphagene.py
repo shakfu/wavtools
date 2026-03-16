@@ -337,7 +337,7 @@ def _cmd_onset(args: argparse.Namespace) -> None:
 
 
 def _cmd_slice(args: argparse.Namespace) -> None:
-    from wavtools.slicer import (
+    from .slicer import (
         slice_points_by_bpm,
         slice_points_by_count,
         slice_points_by_onsets,

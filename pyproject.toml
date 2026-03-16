@@ -1,14 +1,14 @@
 [project]
 name = "wavtools"
 version = "0.1.0"
-description = "Utilities for creating Morphagene reels and Octatrack sample chains"
+description = "Utilities for creating Morphagene reels, Octatrack sample chains, and 2hp Play SD cards"
 readme = "README.md"
 requires-python = ">=3.13"
 license = "MIT"
 authors = [
     { name = "Shakeeb Alireza", email = "shakfu@users.noreply.github.com" }
 ]
-keywords = ["audio", "wav", "morphagene", "octatrack", "sampler", "synthesizer"]
+keywords = ["audio", "wav", "morphagene", "octatrack", "2hp-play", "sampler", "synthesizer"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: End Users/Desktop",
@@ -27,10 +27,6 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/shakfu/wavtools"
 Repository = "https://github.com/shakfu/wavtools"
-
-[project.scripts]
-mg_utils = "wavtools.morphagene:main"
-ot_utils = "wavtools.octatrack:main"
 
 [dependency-groups]
 dev = [
